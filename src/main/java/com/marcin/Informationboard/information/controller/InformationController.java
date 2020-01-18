@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/informations")
+@CrossOrigin
 public class InformationController {
 
     private final InformationService service;
@@ -20,12 +21,12 @@ public class InformationController {
         this.service = service;
     }
 
-    @PostMapping
+    @PostMapping("/add")
     public void addInformation(@RequestBody AddInformationRequest request) {
         service.addInformation(request);
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public List<Information> getAllInformations() {
         return service.getAllInformations();
     }
